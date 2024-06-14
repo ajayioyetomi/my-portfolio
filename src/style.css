@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color:#5263FA;
+}
+
+*{
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+html[class="dark"]{
+    background-color: #09011E;
+    
+}
+html[class="light"]{
+  background-color: #fcfcfc;
+}
+body{
+  padding:0;
+  margin:0;
+}
+
+body::-webkit-scrollbar{
+  width:5px;
+}
+
+html body::-webkit-scrollbar,html::-webkit-scrollbar{
+  background: #fcfcfc;
+}
+html.dark body::-webkit-scrollbar-track,html.dark::-webkit-scrollbar-track{
+  background: #09011E;
+}
+
+html body::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb{
+  background: var(--primary-color);
+}
+
