@@ -147,7 +147,25 @@ onUnmounted(()=>{
         </div>
       </div>
   </section>
-  <section id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground "></section>
+  <section id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
+   bg-lightground dark:bg-darkground ">
+    <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Message</h2>
+    <div class="w-full flex flex-col sm:flex-row gap-6">
+      <label class="w-full flex flex-col gap-2">
+        <span class="text-light dark:text-dark">Name</span>
+        <input class="flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Name" />
+      </label>
+      <label class="w-full  flex flex-col gap-2">
+        <span class="text-light dark:text-dark">Email</span>
+        <input class="flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Email" />
+      </label>
+    </div>
+    <label class="flex flex-col gap-2">
+      <span class="text-light dark:text-dark">Message</span>
+      <textarea class="resize-y flex-1 p-2 bg-transparent rounded-lg border-2 border-light dark:border-primary" placeholder="Enter Message here"></textarea>
+    </label>
+    <button class="bg-primary text-dark rounded-md py-3">Send Message</button>
+  </section>
 
 </template>
 
