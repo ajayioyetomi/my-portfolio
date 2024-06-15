@@ -1,8 +1,11 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import Header from './components/Header.vue';
+import {Header,Footer} from './components';
 import { stacks,mission_statement } from './constants';
 const slideRef = ref(null);
+const name = ref('');
+const email = ref('');
+const message = ref('');
 let start = null;
 let innerStart = null;
 let interval;
@@ -15,7 +18,6 @@ const handleSlide = () =>{
     ul.style.transform = `translateX(-${move}%)`;
     if(move%100 === 0 && move !== 0){
       clearInterval(start);
-      console.log(count,ul.children.length,'final')
       if(count == ul.children.length -2 ){
         ul.style.transform = `translateX(0)`;
         move = 0;
@@ -30,6 +32,14 @@ const handleSlide = () =>{
     }
     move+= 1;
   },interval)
+}
+const handleSubmitMessage=(event)=>{
+  event.preventDefault();
+  console.log(name.value,email.value,message.value,'data')
+  name.value = '';
+  email.value = ''
+  message.value = '';
+  
 }
 onMounted(()=>{
   window.addEventListener('load',handleSlide);
@@ -147,25 +157,26 @@ onUnmounted(()=>{
         </div>
       </div>
   </section>
-  <section id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
+  <form @submit="handleSubmitMessage" id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
    bg-lightground dark:bg-darkground ">
     <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Message</h2>
     <div class="w-full flex flex-col sm:flex-row gap-6">
       <label class="w-full flex flex-col gap-2">
         <span class="text-light dark:text-dark">Name</span>
-        <input class="flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Name" />
+        <input v-model="name" type="text" required class="text-light dark:text-dark flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Name" />
       </label>
-      <label class="w-full  flex flex-col gap-2">
+      <label  class="w-full  flex flex-col gap-2">
         <span class="text-light dark:text-dark">Email</span>
-        <input class="flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Email" />
+        <input v-model="email" required type="email" class="text-light dark:text-dark flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Email" />
       </label>
     </div>
     <label class="flex flex-col gap-2">
       <span class="text-light dark:text-dark">Message</span>
-      <textarea class="resize-y flex-1 p-2 bg-transparent rounded-lg border-2 border-light dark:border-primary" placeholder="Enter Message here"></textarea>
+      <textarea v-model="message" required rows="6" class="text-light dark:text-dark resize-y flex-1 p-2 bg-transparent rounded-lg border-2 border-light dark:border-primary" placeholder="Enter Message here"></textarea>
     </label>
     <button class="bg-primary text-dark rounded-md py-3">Send Message</button>
-  </section>
+  </form>
+  <Footer />
 
 </template>
 
