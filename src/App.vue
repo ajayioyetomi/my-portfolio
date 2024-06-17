@@ -153,6 +153,14 @@ onUnmounted(()=>{
             Full-stack Engineer <span class=""></span><br/>
             <span class="">SIGHT-INNOVATION</span>
           </h3>
+          <div>
+            <p>C-MANAGER | Business management platform for small and medium scaled businesses</p>
+            <div></div>
+            <div>
+               <p>Stacks and Technologies</p>
+               <p></p>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -163,16 +171,16 @@ onUnmounted(()=>{
     <div class="w-full flex flex-col sm:flex-row gap-6">
       <label class="w-full flex flex-col gap-2">
         <span class="text-light dark:text-dark">Name</span>
-        <input v-model="name" type="text" required class="text-light dark:text-dark flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Name" />
+        <input v-model="name" type="text" required class="text-light dark:text-dark flex-1 p-2 bg-transparent rounded-md border-2 border-primary" placeholder="Name" />
       </label>
       <label  class="w-full  flex flex-col gap-2">
         <span class="text-light dark:text-dark">Email</span>
-        <input v-model="email" required type="email" class="text-light dark:text-dark flex-1 p-2 bg-transparent rounded-md border-2 border-light dark:border-primary" placeholder="Email" />
+        <input v-model="email" required type="email" class="text-light dark:text-dark flex-1 p-2 bg-transparent rounded-md border-2 border-primary" placeholder="Email" />
       </label>
     </div>
     <label class="flex flex-col gap-2">
       <span class="text-light dark:text-dark">Message</span>
-      <textarea v-model="message" required rows="6" class="text-light dark:text-dark resize-y flex-1 p-2 bg-transparent rounded-lg border-2 border-light dark:border-primary" placeholder="Enter Message here"></textarea>
+      <textarea v-model="message" required rows="6" class="text-light dark:text-dark resize-y flex-1 p-2 bg-transparent rounded-lg border-2 border-primary" placeholder="Enter Message here"></textarea>
     </label>
     <button class="bg-primary text-dark rounded-md py-3">Send Message</button>
   </form>
