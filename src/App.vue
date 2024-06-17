@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import {Header,Footer} from './components';
+import {Header,Footer,Experience} from './components';
 import { stacks,mission_statement } from './constants';
 const slideRef = ref(null);
 const name = ref('');
@@ -145,26 +145,7 @@ onUnmounted(()=>{
     </div>
 
   </section >
-  <section id="experience" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground flex flex-col">
-      <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Experience through the years</h2>
-      <div>
-        <div class="">
-          <h3>
-            Full-stack Engineer <span class=""></span><br/>
-            <span class="">SIGHT-INNOVATION</span>
-          </h3>
-          <div>
-            <p>C-MANAGER | Business management platform for small and medium scaled businesses</p>
-            <div></div>
-            <div>
-               <p>Stacks and Technologies</p>
-               <p></p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-  </section>
+  <Experience />  
   <form @submit="handleSubmitMessage" id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
    bg-lightground dark:bg-darkground ">
     <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Message</h2>

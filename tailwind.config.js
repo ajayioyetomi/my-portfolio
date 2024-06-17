@@ -30,7 +30,8 @@ export default {
         white:'#FFf',
         black:'#000',
         darkground:'#040115',
-        lightground:'#F9F9FA'
+        lightground:'#F9F9FA',
+        'overlay-primary':'rgba(3,13,99,0.8)'
       },
       colors:{
         primary:'#5263FA',
