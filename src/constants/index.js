@@ -14,16 +14,6 @@ export const links = [
         name:'Message',
         path:"message"
     },
-    {
-        id:4,
-        name:"Download CV",
-        path:'download-cv',
-    },
-    {
-        id:5,
-        name:"View CV",
-        path:'view-cv'
-    }
 ]
 
 export const stacks = [
