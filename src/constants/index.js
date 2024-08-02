@@ -105,7 +105,17 @@ export const stacks = [
 ]
 
 export const mission_statement = [
-    '1Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptates perferendis accusantium totam, repellat fugiat? Architecto, vitae laboriosam dolores id tempore culpa, sequi saepe, nihil ullam libero rerum ex unde?',
-    '2Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptates perferendis accusantium totam, repellat fugiat? Architecto, vitae laboriosam dolores id tempore culpa, sequi saepe, nihil ullam libero rerum ex unde?',
-    '3Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptates perferendis accusantium totam, repellat fugiat? Architecto, vitae laboriosam dolores id tempore culpa, sequi saepe, nihil ullam libero rerum ex unde?'
+    {
+        name:'Values',
+        label:`Attention to Details, Test Driven Development, Time Management, and Professional Growth & Development.
+        `
+    },
+    {
+        name:"Culture",
+        label:`Continuous Learning, Effective Communication, Collaboration & Shared Ownership, Regular Feedback, and Clear Goals`
+    },
+    {
+        name:'Career Goals',
+        label:`Technical Proficiency, Become a Mentor, Continuous Career growth & development, and Financial Dependency`
+    }    
 ]

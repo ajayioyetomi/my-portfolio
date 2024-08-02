@@ -39,6 +39,9 @@
               'Document development processes, architecture, and technical details'
             ]
           }
+        ],
+        stacks:[
+          'Javascript','Typescript','Node','PHP','MySQL','MongoDb','SCSS','Tailwind','BootStrap','HTML','CSS','Cpanel','Redux','ReactJS','NextJS','Blender','Figma','Git'
         ]
       },
       {
@@ -64,6 +67,9 @@
               'Document development processes, architecture, and technical details'
             ]
           }
+        ],
+        stacks:[
+          'Javascript','PHP','MySQL','SCSS','BootStrap','HTML','CSS','Cpanel','Figma','Git'
         ]
 
       },
@@ -88,6 +94,10 @@
             'Designed and constructed various efficient power supplies including linear and SMPS power supply'
             ]
           }
+        ],
+        stacks:[
+          'Javascript','PHP','MySQL','BootStrap','HTML','CSS','Blender','Figma','CorelDraw',
+          'Proteus','PhotoShop','C Progamming Languate','Mikro C','Pic Microcontroller'
         ]
       }
     ]
@@ -97,8 +107,8 @@
 <template>
     <section id="experience" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground flex flex-col">
       <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Experience through the years</h2>
-      <div v-for="list in experience_list" :key="list.id" class="relative mt-5 before:content-[''] before:inline-block before:absolute before:top-[50px] before:-left-[25px] before:w-1 before:h-full before:bg-primary overflow-x-visible overflow-y-clip">
-        <div class="relative before:content-[''] before:absolute before:-left-10 before:top-2 before:inline-block before:w-8 before:h-8 before:rounded-[50%] before:border-2 before:border-primary">
+      <div v-for="list in experience_list" :key="list.id" class="flex w-full relative mt-5 before:content-[''] before:inline-block before:absolute before:top-[50px] before:-left-[25px] before:w-1 before:h-full before:bg-primary overflow-x-visible overflow-y-clip">
+        <div class="flex-1 relative before:content-[''] before:absolute before:-left-10 before:top-2 before:inline-block before:w-8 before:h-8 before:rounded-[50%] before:border-2 before:border-primary">
           <h2 class="relative text-primary">
             {{ list?.position }} <span class="text-light dark:text-dark">{{ list?.time }}</span><br/>
             <span class="text-light dark:text-dark font-bold font-uppercase">{{ list?.company }}</span>
@@ -112,6 +122,12 @@
             </ul>
           </div>
          
+        </div>
+        <div class="flex flex-wrap w-[300px] h-fit gap-2">
+          <h4 class="text-light dark:text-dark font-bold mb-3">Stacks and Technologies</h4><br/>
+          <span class="w-fit h-fit cursor-pointer px-3 py-1 rounded-2xl text-light dark:text-dark bg-primary" v-for="(eStack,ind) in list.stacks" :key="ind">
+            {{ eStack }}
+          </span>
         </div>
       </div>
       
