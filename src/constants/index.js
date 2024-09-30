@@ -9,11 +9,11 @@ export const links = [
         name:'Experience',
         path:"experience"
     },
-    {
-        id:3,
-        name:'Message',
-        path:"message"
-    },
+    // {
+    //     id:3,
+    //     name:'Message',
+    //     path:"message"
+    // },
 ]
 
 export const stacks = [
@@ -116,6 +116,6 @@ export const mission_statement = [
     },
     {
         name:'Career Goals',
-        label:`Technical Proficiency, Become a Mentor, Continuous Career growth & development, and Financial Dependency`
+        label:`Technical Proficiency, Become a Mentor, Continuous Career growth & development, and Financial Independence`
     }    
 ]

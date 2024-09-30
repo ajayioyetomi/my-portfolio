@@ -148,10 +148,9 @@ onUnmounted(()=>{
           <img class="w-[90%] sm:w-[300px] md:w-[450px]" src="./assets/images/culture.png" alt="culture" />
         </div>
       </div>
-
     </section >
     <Experience />  
-    <form @submit="handleSubmitMessage" id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
+    <!-- <form @submit="handleSubmitMessage" id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
     bg-lightground dark:bg-darkground ">
       <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Message</h2>
       <div class="w-full flex flex-col sm:flex-row gap-6">
@@ -169,7 +168,7 @@ onUnmounted(()=>{
         <textarea v-model="message" required rows="6" class="text-light dark:text-dark resize-y flex-1 p-2 bg-transparent rounded-lg border-2 border-primary" placeholder="Enter Message here"></textarea>
       </label>
       <button class="bg-primary text-dark rounded-md py-3">Send Message</button>
-    </form>
+    </form> -->
   </main>
   <Footer />
 
