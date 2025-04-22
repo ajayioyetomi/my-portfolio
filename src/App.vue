@@ -56,7 +56,7 @@ onUnmounted(()=>{
   <Header />
   <main>
     <section class="flex flex-col md:flex-row px-[20px] md:px-[3%] lg:px-[5%] md:h-screen h-[fit-content] items-center gap-[5%] overflow-clip bg-lightground dark:bg-darkground">
-      <div class="shrink-0 mt-[100px] md:mt-0 min-w-[350px] md:w-[45%] w-[90%] flex justify-center items-center">
+      <div class="shrink-0 mt-[20px] md:mt-0 min-w-[350px] md:w-[45%] w-[90%] flex justify-center items-center">
         <div class="wrapper spin relative md:h-[40vw] md:w-[40vw] xs:w-[95vw] xs:h-[95vw] sm:h-[70vw] sm:w-[70vw] flex justify-center items-center">
           <span class="rain top-0">
             <img src="./assets/images/javascript.webp" class="spin2" title="javascript" alt="javascript" />

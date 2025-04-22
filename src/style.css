@@ -23,6 +23,7 @@ html[class="light"]{
 body{
   padding:0;
   margin:0;
+  overflow: clip auto;
 }
 
 body::-webkit-scrollbar{

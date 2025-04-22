@@ -22,7 +22,7 @@
 
 <template>
     <ViewCV :show="showCV" @handleClose="handleCloseCV()" />
-    <header class="fixed z-50 items-center w-screen top-0 left-0 flex py-[10px] px-[5%] bg-[rgba(8,24,196,0.8)] dark:bg-[rgba(3,9,73,0.8)] ">
+    <header class="fixed sm:sticky z-50 items-center w-screen top-0 left-0 flex py-[10px] px-[5%] bg-[rgba(8,24,196,0.8)] dark:bg-[rgba(3,9,73,0.8)] ">
         <span class="absolute top-0 left-0 w-full h-full -z-0 blur-4xl backdrop-blur-lg"></span>
         <a href="/" class="relative z-40 w-[60px] h-[60px]">
             <img src="/logo.png" class="relative z-40 w-[60px] h-[60px]" />

@@ -116,6 +116,6 @@ export const mission_statement = [
     },
     {
         name:'Career Goals',
-        label:`Technical Proficiency, Become a Mentor, Continuous Career growth & development, and Financial Independence`
+        label:`Technical Proficiency, Continuous Career growth & development, Financial Independence and Become a Mentor`
     }    
 ]
