@@ -1,61 +1,71 @@
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
-import {Header,Footer,Experience,Projects} from './components';
-import { stacks,mission_statement } from './constants';
-const slideRef = ref(null);
-const name = ref('');
-const email = ref('');
-const message = ref('');
-let start = null;
-let innerStart = null;
-let interval;
-let move = 0;
-let count = 1;
-const handleSlide = () =>{
-  const ul = slideRef.value;
-  interval = 10;
-  start = setInterval(()=>{
-    ul.style.transform = `translateX(-${move}%)`;
-    if(move%100 === 0 && move !== 0){
-      clearInterval(start);
-      if(count == ul.children.length -2 ){
-        ul.style.transform = `translateX(0)`;
-        move = 0;
-        count = 0;
-      }
-      interval = 4000;
-      innerStart = setTimeout(()=>{
-        handleSlide();
-        clearTimeout(innerStart);
-      },interval)
-      count+= 1;
-    }
-    move+= 1;
-  },interval)
-}
-const handleSubmitMessage=(event)=>{
-  event.preventDefault();
-  console.log(name.value,email.value,message.value,'data')
-  name.value = '';
-  email.value = ''
-  message.value = '';
-  
-}
-onMounted(()=>{
-  window.addEventListener('load',handleSlide);
-})
+  import { ref, watch, onMounted, onUnmounted } from 'vue';
+  import {Header,Footer,Experience,Projects} from './components';
+  import { stacks,mission_statement } from './constants';
+  const theme = ref(false);
+  const handleTheme = (newTheme) =>{
+    theme.value = newTheme;
+    console.log(newTheme,'theme')
+  }
 
-onUnmounted(()=>{
-  window.removeEventListener('load',handleSlide);
-})
+  const slideRef = ref(null);
+  const name = ref('');
+  const email = ref('');
+  const message = ref('');
+ 
+  let start = null;
+  let innerStart = null;
+  let interval;
+  let move = 0;
+  let count = 1;
+
+  const handleSlide = () =>{
+    const ul = slideRef.value;
+    interval = 10;
+    start = setInterval(()=>{
+      ul.style.transform = `translateX(-${move}%)`;
+      if(move%100 === 0 && move !== 0){
+        clearInterval(start);
+        if(count == ul.children.length -2 ){
+          ul.style.transform = `translateX(0)`;
+          move = 0;
+          count = 0;
+        }
+        interval = 4000;
+        innerStart = setTimeout(()=>{
+          handleSlide();
+          clearTimeout(innerStart);
+        },interval)
+        count+= 1;
+      }
+      move+= 1;
+    },interval)
+  }
+
+  const handleSubmitMessage=(event)=>{
+    event.preventDefault();
+    console.log(name.value,email.value,message.value,'data')
+    name.value = '';
+    email.value = ''
+    message.value = '';
+    
+  }
+
+  onMounted(()=>{
+    window.addEventListener('load',handleSlide);
+  })
+
+  onUnmounted(()=>{
+    window.removeEventListener('load',handleSlide);
+  })
 
 </script>
 
 <template>
 
-  <Header />
+  <Header :handleTheme="handleTheme" />
   <main class="main">
-    <section class="flex flex-col md:flex-row px-[20px] md:px-[3%] lg:px-[5%] md:h-screen h-[fit-content] items-center gap-[5%] overflow-clip bg-lightground dark:bg-darkground">
+    <section class="relative flex flex-col md:flex-row px-[20px] md:px-[3%] lg:px-[5%] md:h-screen h-[fit-content] items-center gap-[5%] overflow-x-clip bg-lightground dark:bg-darkground mb-[90px] sm:mb-[150px] transition-all duration-500">
       <div class="shrink-0 mt-[20px] md:mt-0 min-w-[350px] md:w-[45%] w-[90%] flex justify-center items-center">
         <div class="wrapper spin relative md:h-[40vw] md:w-[40vw] xs:w-[95vw] xs:h-[95vw] sm:h-[70vw] sm:w-[70vw] flex justify-center items-center">
           <span class="rain top-0">
@@ -110,9 +120,16 @@ onUnmounted(()=>{
         </p>
         <p class="dark:text-white text-primary mt-3 font-bold text-2xl">Introduction</p>
       </div>
-
+      <span class="absolute -bottom-[90px] sm:-bottom-[150px] left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!theme" src="./assets/images/sub.png" alt="Union" />
+        <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
+      </span>
     </section>
-    <section class="mt-8 flex flex-col md:flex-row items-start px-[20px] md:px-[3%] lg:px-[5%] py-6 min-h-[100vh] h-[fit-content] bg-lightground dark:bg-darkground">
+    <section class="relative flex flex-col md:flex-row items-start px-[20px] md:px-[3%] lg:px-[5%] py-6 min-h-[100vh] h-[fit-content] bg-lightground dark:bg-darkground my-[90px] sm:my-[150px] transition-all duration-500">
+      <span class="absolute -top-[90px] sm:-top-[150px] rotate-180 left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!theme" src="./assets/images/sub.png" alt="Union" />
+        <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
+      </span>
       <div id="about" class="w-full md:w-[calc(100% - 300px)] h-full flex flex-col gap-8 justify-center flex-wrap ">
         <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Tell us about yourself?</h2>
         <video controls autoplay loop muted poster="./assets/images/poster.jpg" class="border-4 border-primary rounded-2xl h-[45vh] sm:h-[60vh] md:h-[75vh] aspect-[4/2] object-cover object-right bg-lightground dark:bg-darkground">
@@ -132,8 +149,17 @@ onUnmounted(()=>{
           </li>
         </ul>
       </div>
+      <span class="absolute -bottom-[90px] sm:-bottom-[150px] left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!theme" src="./assets/images/sub.png" alt="Union" />
+        <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
+      </span>
     </section>
-    <section class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground flex flex-col gap-4">
+    <section class="relative px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground 
+      flex flex-col gap-4 my-[90px] sm:my-[150px] transition-all duration-500">
+      <span class="absolute -top-[90px] sm:-top-[150px] rotate-180 left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!theme" src="./assets/images/sub.png" alt="Union" />
+        <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
+    </span>
       <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">
         Values, Culture and Career Goals
       </h2>
@@ -148,9 +174,13 @@ onUnmounted(()=>{
           <img class="w-[90%] sm:w-[300px] md:w-[450px]" src="./assets/images/culture.webp" alt="culture" />
         </div>
       </div>
+      <span class="absolute -bottom-[90px] sm:-bottom-[150px] left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!theme" src="./assets/images/sub.png" alt="Union" />
+        <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
+      </span>
     </section >
-    <Projects />
-    <Experience />  
+    <Projects :theme="theme" />
+    <Experience :theme="theme"/>  
     <!-- <form @submit="handleSubmitMessage" id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
     bg-lightground dark:bg-darkground ">
       <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Message</h2>
@@ -181,7 +211,18 @@ onUnmounted(()=>{
   }
 
   .main{
-    background-image: url('./assets/images/sample.gif');
+    background-image: url('./assets/images/sample-2.gif');
+  }
+
+  .union{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+  }
+
+  .union > img{
+    width:100%;
+    height:100%;
   }
 
 

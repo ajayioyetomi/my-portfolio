@@ -1,6 +1,13 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineProps, effect } from "vue";
 const listRef = ref();
+const props = defineProps({
+  theme:{
+    type:Boolean,
+  }
+});
+let color = ref(props.theme);
+
 const project_list = [
   {
     id: 1,
@@ -98,12 +105,20 @@ onMounted(() => {
     scrollAnimation();
   })
 });
+effect(()=>{
+  color.value = props.theme
+},[props.theme])
 </script>
 
 <template>
   <section
-    class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground flex flex-col gap-2"
+    class="relative px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground 
+    flex flex-col gap-2 my-[90px] sm:my-[150px] transition-all duration-500"
   >
+    <span class="absolute -top-[90px] sm:-top-[150px] rotate-180 left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!color" src="../assets/images/sub.png" alt="Union" />
+        <img v-if="color" src="../assets/images/sub-2.png" alt="Union" />
+    </span>
     <h2
       class="text-center md:text-left text-light dark:text-primary m-0 text-2xl sm:text-4xl"
     >
@@ -146,27 +161,41 @@ onMounted(() => {
         </li>
       </ul>
     </div>
+    <span class="absolute -bottom-[90px] sm:-bottom-[150px] left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!color" src="../assets/images/sub.png" alt="Union" />
+        <img v-if="color" src="../assets/images/sub-2.png" alt="Union" />
+      </span>
   </section>
 </template>
 
 <style scoped>
-.project-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 135px;
-}
-.project-list > img {
-  width: 100%;
-  height: 100%;
-  object-position: center;
-  object-fit: contain;
-  border-radius: 5px;
-}
+  .project-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 135px;
+  }
+  .project-list > img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: contain;
+    border-radius: 5px;
+  }
 
-.p-list::-webkit-scrollbar {
-  width: 0px;
-}
+  .p-list::-webkit-scrollbar {
+    width: 0px;
+  }
+  .union{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+  }
+
+  .union > img{
+    width:100%;
+    height:100%;
+  }
 
 @media screen and (width <= 650px) {
   .project-list {

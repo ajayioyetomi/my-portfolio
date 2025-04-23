@@ -29,7 +29,7 @@ export default {
         primary:'#5263FA',
         white:'#FFf',
         black:'#000',
-        darkground:'rgba(4, 1, 21, .8)',
+        darkground:'rgba(4, 1, 21, .9)',
         lightground:'rgba(249, 249, 250, .9)',
         'overlay-primary':'rgba(3,13,99, .9)'
       },

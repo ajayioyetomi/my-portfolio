@@ -1,8 +1,13 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, defineEmits, defineProps } from 'vue';
     import {Switch,Socials,Menu,ViewCV} from '.';
     import {links} from '../constants';
-   
+
+    const props = defineProps({
+        handleTheme:{
+            type:Function,
+        }
+    })
     const show = ref(true);
     const showCV = ref(false);
     const handleShow = ()=>{
@@ -16,13 +21,13 @@
         showCV.value = false;
         console.log('close')
     }
-    
+
     
 </script>
 
 <template>
     <ViewCV :show="showCV" @handleClose="handleCloseCV()" />
-    <header class="fixed sm:sticky z-50 items-center w-screen top-0 left-0 flex py-[10px] px-[5%] bg-[rgba(8,24,196,0.8)] dark:bg-[rgba(3,9,73,0.8)] ">
+    <header class="fixed sm:sticky z-50 items-center w-screen top-0 left-0 flex py-[10px] px-[5%] bg-[rgba(8,24,196,0.8)] dark:bg-[rgba(3,9,73,0.8)] transition-all duration-500">
         <span class="absolute top-0 left-0 w-full h-full -z-0 blur-4xl backdrop-blur-lg"></span>
         <a href="/" class="relative z-40 w-[60px] h-[60px]">
             <img src="/logo.png" class="relative z-40 w-[60px] h-[60px]" />
@@ -36,7 +41,7 @@
                 <span class="cursor-pointer relative font-bold text-white dark:text-primary transition-all duration-75 after:absolute after:w-full after:h-1 after:bg-white after:dark:bg-primary after:inline-block after:content-[''] after:-bottom-2 after:left-0 after:opacity-0 hover:after:opacity-100" @click="handleShowCV()"  >View CV</span>
             </div>
             <!-- <Socials />             -->
-            <Switch />
+            <Switch @handleTheme="props.handleTheme" />
             <Menu :show="show" @handleClick="handleShow()" class="relative z-50 md:hidden"/>
         </nav>
         <aside :class="`md:left-[100vw] ${!show?'left-0':'left-[100vw]'} fixed top-0 z-10 w-screen h-full bg-[rgba(244,244,250,0.9)] dark:bg-[rgba(12,10,20,0.9)]  transition-all duration-100 flex justify-end`">

@@ -1,4 +1,12 @@
 <script setup>
+    import {defineProps,ref,effect} from 'vue';
+    const props = defineProps({
+      theme:{
+        type:Boolean,
+      }
+    });
+    let color = ref(props.theme);
+
     const experience_list = [
     {
         id:1,
@@ -124,11 +132,18 @@
       ]
     }
   ]
+  effect(()=>{
+    color.value = props.theme
+  },[props.theme])
 
 </script>
 
 <template>
-    <section id="experience" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground flex flex-col">
+    <section id="experience" class="relative px-[20px] md:px-[3%] lg:px-[5%] py-5 bg-lightground dark:bg-darkground flex flex-col mt-[90px] sm:mt-[150px] transition-all duration-500">
+      <span class="absolute -top-[90px] sm:-top-[150px] rotate-180 left-0 line-block w-full h-[90px] sm:h-[150px] union">
+        <img v-if="!color" src="../assets/images/sub.png" alt="Union" />
+        <img v-if="color" src="../assets/images/sub-2.png" alt="Union" />
+    </span>
       <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Experience through the years</h2>
       <div v-for="list in experience_list" :key="list.id" class="flex flex-col sm:flex-row w-full relative mt-5 before:content-[''] before:inline-block before:absolute before:top-[50px] before:-left-[25px] before:w-1 before:h-full before:bg-primary overflow-x-visible overflow-y-clip gap-1">
         <div class="flex-1 relative before:content-[''] before:absolute before:-left-10 before:top-2 before:inline-block before:w-8 before:h-8 before:rounded-[50%] before:border-2 before:border-primary">
@@ -170,5 +185,14 @@
    .active-hover:hover > div{
     display:block;
    }
+   .union{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+  }
 
+  .union > img{
+    width:100%;
+    height:100%;
+  }
 </style>
