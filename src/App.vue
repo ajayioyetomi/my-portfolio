@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import {Header,Footer,Experience} from './components';
+import {Header,Footer,Experience,Projects} from './components';
 import { stacks,mission_statement } from './constants';
 const slideRef = ref(null);
 const name = ref('');
@@ -54,7 +54,7 @@ onUnmounted(()=>{
 <template>
 
   <Header />
-  <main>
+  <main class="main">
     <section class="flex flex-col md:flex-row px-[20px] md:px-[3%] lg:px-[5%] md:h-screen h-[fit-content] items-center gap-[5%] overflow-clip bg-lightground dark:bg-darkground">
       <div class="shrink-0 mt-[20px] md:mt-0 min-w-[350px] md:w-[45%] w-[90%] flex justify-center items-center">
         <div class="wrapper spin relative md:h-[40vw] md:w-[40vw] xs:w-[95vw] xs:h-[95vw] sm:h-[70vw] sm:w-[70vw] flex justify-center items-center">
@@ -62,7 +62,7 @@ onUnmounted(()=>{
             <img src="./assets/images/javascript.webp" class="spin2" title="javascript" alt="javascript" />
           </span>
           <span class="rain2 right-0">
-            <img src="./assets/images/graphql.png" class="spin2" title="graphql" alt="graghql"/>
+            <img src="./assets/images/graphql.webp" class="spin2" title="graphql" alt="graghql"/>
           </span>
           <span class="rain3 top-[calc(50%-120px)] left-[20px]">
             <img src="./assets/images/tailwind.webp" class="spin2" title="tailwind" alt="tailwind"/>
@@ -83,7 +83,7 @@ onUnmounted(()=>{
             <img src="./assets/images/mysql.webp" class="spin2" title="mysql" alt="mysql"/>
           </span>
           <span class="rain left-[15vw] bottom-[15px] sm:bottom-[70px]  md:bottom-[30px] md:left-[7vw]">
-            <img src="./assets/images/mongodb.png" class="spin2" title="mongodb" alt="mongodb"/>
+            <img src="./assets/images/mongodb.webp" class="spin2" title="mongodb" alt="mongodb"/>
           </span>
           <span class="rain bottom-[calc(50%-120px)] right-[20px]">
             <img src="./assets/images/vue.webp" class="spin2" title="vue" alt="vue"/>
@@ -92,7 +92,7 @@ onUnmounted(()=>{
               <img src="./assets/images/typescript.webp" class="spin2" title="typescript" alt="typescript" />
           </span>
           <span class="rain3 left-0">
-            <img src="./assets/images/python.png" class="spin2" title="python" alt="python"/>
+            <img src="./assets/images/python.webp" class="spin2" title="python" alt="python"/>
           </span>
           <span class="rain4 bottom-0">
             <img src="./assets/images/php.webp" class="spin2" title="php" alt="php"/>
@@ -145,10 +145,11 @@ onUnmounted(()=>{
           </li>
         </ul>
         <div class="w-full  md:w-[450px] flex justify-center items-center">
-          <img class="w-[90%] sm:w-[300px] md:w-[450px]" src="./assets/images/culture.png" alt="culture" />
+          <img class="w-[90%] sm:w-[300px] md:w-[450px]" src="./assets/images/culture.webp" alt="culture" />
         </div>
       </div>
     </section >
+    <Projects />
     <Experience />  
     <!-- <form @submit="handleSubmitMessage" id="message" class="mt-8 px-[20px] md:px-[3%] lg:px-[5%] py-5 flex flex-col gap-6
     bg-lightground dark:bg-darkground ">
@@ -177,6 +178,10 @@ onUnmounted(()=>{
 <style scoped>
   main > section{
     padding-block:70px;
+  }
+
+  .main{
+    background-image: url('./assets/images/sample.gif');
   }
 
 

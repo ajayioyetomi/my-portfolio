@@ -75,7 +75,7 @@ export const stacks = [
         name:'Python',
         level:'Intermediate',
         years:2,
-        icon:'python.png'
+        icon:'python.webp'
     },
     {
         name:'Mysql',
@@ -87,7 +87,7 @@ export const stacks = [
         name:'MongoDB',
         level:'Experienced',
         years:3,
-        icon:'mongodb.png'
+        icon:'mongodb.webp'
     },
     {
         name:'Javascript',

@@ -29,9 +29,9 @@ export default {
         primary:'#5263FA',
         white:'#FFf',
         black:'#000',
-        darkground:'#040115',
-        lightground:'#F9F9FA',
-        'overlay-primary':'rgba(3,13,99,0.8)'
+        darkground:'rgba(4, 1, 21, .8)',
+        lightground:'rgba(249, 249, 250, .9)',
+        'overlay-primary':'rgba(3,13,99, .9)'
       },
       colors:{
         primary:'#5263FA',
