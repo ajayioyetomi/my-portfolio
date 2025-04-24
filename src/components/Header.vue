@@ -1,13 +1,29 @@
 <script setup>
-    import { ref, defineEmits, defineProps } from 'vue';
+    import { ref, defineProps } from 'vue';
     import {Switch,Socials,Menu,ViewCV} from '.';
     import {links} from '../constants';
-
     const props = defineProps({
         handleTheme:{
             type:Function,
+        },
+        gotoIntro:{
+            type:Function
         }
     })
+    const gotoIntro = ()=>{
+        props.gotoIntro();
+    }
+
+    const goto = (id) =>{
+        let el = document.getElementById(id);
+        el.scrollTo({
+            top:100,
+            left:0,
+            behavior:'smooth'
+        })
+        console.log(el,id)
+    }
+    
     const show = ref(true);
     const showCV = ref(false);
     const handleShow = ()=>{
@@ -35,7 +51,7 @@
         <nav class="relative flex flex-1 justify-end gap-4 sm:gap-6 items-center">
             <div class="hidden gap-4 sm:gap-6 md:flex items-center">
                 <a class="relative font-bold text-white dark:text-primary transition-all duration-75 after:absolute after:w-full after:h-1 after:bg-white after:dark:bg-primary after:inline-block after:content-[''] after:-bottom-2 after:left-0 after:opacity-0 hover:after:opacity-100 " 
-                v-for="link in links" :key="link.id" :href="link.path?'#'+link.path:''" >{{ link.name }}
+                v-for="link in links" :key="link.id" :href="`#${link.path}`" >{{ link.name }}
                 </a>
                 <a href="./taiwo_ajayi_cv.pdf" class="relative font-bold text-white dark:text-primary transition-all duration-75 after:absolute after:w-full after:h-1 after:bg-white after:dark:bg-primary after:inline-block after:content-[''] after:-bottom-2 after:left-0 after:opacity-0 hover:after:opacity-100 " download>Download CV</a>
                 <span class="cursor-pointer relative font-bold text-white dark:text-primary transition-all duration-75 after:absolute after:w-full after:h-1 after:bg-white after:dark:bg-primary after:inline-block after:content-[''] after:-bottom-2 after:left-0 after:opacity-0 hover:after:opacity-100" @click="handleShowCV()"  >View CV</span>

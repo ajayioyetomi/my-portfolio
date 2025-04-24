@@ -3,6 +3,18 @@
   import {Header,Footer,Experience,Projects} from './components';
   import { stacks,mission_statement } from './constants';
   const theme = ref(false);
+  const introRef = ref(null)
+
+  const gotoIntro = () =>{
+    console.log('clicked')
+    console.log(introRef.value,'el')
+    introRef.value.scrollTo({
+      top:-100,
+      left:0,
+      behavior:'smooth'
+    })
+  }
+
   const handleTheme = (newTheme) =>{
     theme.value = newTheme;
     console.log(newTheme,'theme')
@@ -63,7 +75,7 @@
 
 <template>
 
-  <Header :handleTheme="handleTheme" />
+  <Header :handleTheme="handleTheme" :gotoIntro="gotoIntro" />
   <main class="main">
     <section class="relative flex flex-col md:flex-row px-[20px] md:px-[3%] lg:px-[5%] md:h-screen h-[fit-content] items-center gap-[5%] overflow-x-clip bg-lightground dark:bg-darkground mb-[90px] sm:mb-[150px] transition-all duration-500">
       <div class="shrink-0 mt-[20px] md:mt-0 min-w-[350px] md:w-[45%] w-[90%] flex justify-center items-center">
@@ -125,12 +137,12 @@
         <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
       </span>
     </section>
-    <section class="relative flex flex-col md:flex-row items-start px-[20px] md:px-[3%] lg:px-[5%] py-6 min-h-[100vh] h-[fit-content] bg-lightground dark:bg-darkground my-[90px] sm:my-[150px] transition-all duration-500">
-      <span class="absolute -top-[90px] sm:-top-[150px] rotate-180 left-0 line-block w-full h-[90px] sm:h-[150px] union">
+    <section ref="introRef" class="relative flex flex-col md:flex-row items-start px-[20px] md:px-[3%] lg:px-[5%] py-6 min-h-[100vh] h-[fit-content] bg-lightground dark:bg-darkground my-[90px] sm:my-[150px] transition-all duration-500">
+      <span id="about" class="absolute -top-[90px] sm:-top-[150px] rotate-180 left-0 line-block w-full h-[90px] sm:h-[150px] union">
         <img v-if="!theme" src="./assets/images/sub.png" alt="Union" />
         <img v-if="theme" src="./assets/images/sub-2.png" alt="Union" />
       </span>
-      <div id="about" class="w-full md:w-[calc(100% - 300px)] h-full flex flex-col gap-8 justify-center flex-wrap ">
+      <div  class="w-full md:w-[calc(100% - 300px)] h-full flex flex-col gap-8 justify-center flex-wrap ">
         <h2 class="text-center md:text-left text-light dark:text-primary m-0 text-2xl  sm:text-4xl">Tell us about yourself?</h2>
         <video controls autoplay loop muted poster="./assets/images/poster.jpg" class="border-4 border-primary rounded-2xl h-[45vh] sm:h-[60vh] md:h-[75vh] aspect-[4/2] object-cover object-right bg-lightground dark:bg-darkground">
           <source src="./assets/videos/Interview.mp4" type="video/mp4">
